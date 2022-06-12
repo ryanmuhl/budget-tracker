@@ -4,7 +4,9 @@ const DATA_CACHE_NAME = 'data-cache-v2';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
-  './css/style.css',
+  './css/styles.css',
+  './js/idb.js',
+  './js/index.js',
   './icons/icon-96x96.png',
   './icons/icon-128x128.png',
   './icons/icon-144x144.png',
