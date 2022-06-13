@@ -17,7 +17,7 @@ const FILES_TO_CACHE = [
 ];
 
 // Install the service worker
-self.addEventListener('install', function(evt) {
+self.addEventListener('install', function (evt) {
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log('Your files were pre-cached successfully!');
@@ -29,7 +29,7 @@ self.addEventListener('install', function(evt) {
 });
 
 // Activate the service worker and remove old data from the cache
-self.addEventListener('activate', function(evt) {
+self.addEventListener('activate', function (evt) {
   evt.waitUntil(
     caches.keys().then(keyList => {
       return Promise.all(
@@ -47,7 +47,7 @@ self.addEventListener('activate', function(evt) {
 });
 
 // Intercept fetch requests
-self.addEventListener('fetch', function(evt) {
+self.addEventListener('fetch', function (evt) {
   if (evt.request.url.includes('/api/')) {
     evt.respondWith(
       caches
@@ -73,10 +73,17 @@ self.addEventListener('fetch', function(evt) {
     return;
   }
 
-   // if the request is not for the API, serve static assets using "offline-first" approach.
-   evt.respondWith(
-    caches.match(evt.request).then(function (response) {
-        return response || fetch(evt.request);
+  evt.respondWith(
+    fetch(evt.request).catch(function() {
+      return caches.match(evt.request).then(function(response) {
+        if (response) {
+          return response;
+        } else if (evt.request.headers.get('accept').includes('text/html')) {
+          // return the cached home page for all requests for html pages
+          return caches.match('/');
+        }
+      });
     })
-);
+  );
 });
+
