@@ -6,7 +6,6 @@
 - [Built With](#built-with)
 - [Installation Instructions](#installation-instructions)
 - [GitHub Repository](#github-repository)
-- [Screencastify Link](#screencastify-links)
 - [Contributions](#contributions)
 
 
@@ -33,23 +32,7 @@ Create an application where a User can track withdrawls and deposits with or wit
 * To start server run => node server.js or run => npm start
 
 ## GitHub Repository
-https://github.com/ryanmuhl/social-network-api
-
-## Screencastify Links
-
-### Get Routes All Users/All Thoughts/User by ID/Thoughts by ID
-https://drive.google.com/file/d/1Kdb-HchQEY3w0B2beWzEiVzZvStKnzLh/view
-
-### Post/Put/Delete Routes for User
-https://drive.google.com/file/d/1pjeH0MA2COFZi-DY2WIpFqvxKWFdjDYh/view
-
-### Post/Put/Delete Routes for Thoughts
-https://drive.google.com/file/d/1HrJ9TWZrBAe95D3WbagUL_MekPzqj2j0/view
-
-### Post/Delete Friends/Reactions
-https://drive.google.com/file/d/1WHjoqS169ff7DsHtz79CUqtNgU6lDKBv/view
-
-
+https://github.com/ryanmuhl/budget-tracker
 
 ## Contributions
 Created/Designed by:
