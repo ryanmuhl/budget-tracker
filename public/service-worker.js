@@ -1,7 +1,8 @@
-const CACHE_NAME = 'my-site-cache-v2';
-const DATA_CACHE_NAME = 'data-cache-v2';
+const CACHE_NAME = 'my-site-cache-v4';
+const DATA_CACHE_NAME = 'data-cache-v4';
 
 const FILES_TO_CACHE = [
+  '/',
   './index.html',
   './manifest.json',
   './css/styles.css',
@@ -75,14 +76,21 @@ self.addEventListener('fetch', function(evt) {
 
   evt.respondWith(
     fetch(evt.request).catch(function() {
+      console.log('catch')
       return caches.match(evt.request).then(function(response) {
         if (response) {
+          console.log(response)
           return response;
         } else if (evt.request.headers.get('accept').includes('text/html')) {
           // return the cached home page for all requests for html pages
+          console.log(caches.match('/'));
+        
           return caches.match('/');
         }
-      });
+      }).catch(e => {
+        console.log(e)
+
+      })
     })
   );
 });
