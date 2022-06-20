@@ -1,5 +1,5 @@
 # Budget Tracker
-* Challenge 19
+* Bootcamp Challenge 19
 
 - [Purpose](#purpose)
 - [Website Functionality](#website-functionality)
